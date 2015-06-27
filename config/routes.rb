@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:create, :update, :destroy]
   devise_for :users
-  get 'users/profile', :to => 'profile#show'
+  get 'users/profile', :to => 'profile#show', as: :profile
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
