@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks
-  has_many :projects, through: :membership
+  has_many :memberships
+  has_many :projects, through: :memberships
 end
