@@ -6,28 +6,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-default{:role => "navigation"}
-      .container-fluid
-        .navbar-header
-          %button.navbar-toggle{"data-target"=>"#navbarasd", "data-toggle"=>"collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to "GuruTracker", root_path, :class => "navbar-brand"
-        #navbarasd.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              %li
-                = link_to "Projects", projects_path
-            - if user_signed_in?
-              %li
-                = link_to "Your profile", profile_path
-              %li
-                = link_to "Sign out", destroy_user_session_path, {:method => :delete}
-            - else
-              %li
-                = link_to "Sign up", new_user_registration_path
-              %li
-                = link_to "Login", new_user_session_path
-    = yield
+  = render 'layouts/partials/navbar'
+  = yield
