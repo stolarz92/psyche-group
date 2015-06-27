@@ -1,5 +1,5 @@
 before_script:
-  - cp config/database.yml.sample config/database.yml
+  - cp config/database.yml.travis config/database.yml
   - psql -c 'create database "psyche-group_test";' -U postgres
 addons:
   postgresql: "9.3"

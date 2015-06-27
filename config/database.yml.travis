@@ -1,0 +1,9 @@
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: psyche-group_test
+  pool:     5
+  username: psyche-group
+  password:
+  template: template0
