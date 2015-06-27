@@ -6,15 +6,15 @@
         - task.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.input :name
-  .field
+  .form-group
     = f.input :description
-  .field
+  .form-group
     = f.input :deadline
-  .field
+  .form-group
     = f.association :priority
-  .field
+  .form-group
     = f.association :status
-  .actions
+  .actions.form-group
     = f.submit 'Save'
