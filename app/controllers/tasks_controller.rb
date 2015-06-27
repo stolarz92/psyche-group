@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  expose(:task)
+  expose(:task, params: :task_params)
   expose(:project)
 
   # GET /tasks
@@ -14,7 +14,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
   end
 
   # GET /tasks/1/edit
@@ -23,10 +22,8 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
-
-    if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
+    if task.save
+      redirect_to task, notice: 'Task was successfully created.'
     else
       render :new
     end
@@ -34,8 +31,8 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   def update
-    if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+    if task.update(task_params)
+      redirect_to task, notice: 'Task was successfully updated.'
     else
       render :edit
     end
@@ -43,8 +40,8 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   def destroy
-    @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    task.destroy
+    redirect_to project_tasks_url, notice: 'Task was successfully destroyed.'
   end
 
   private
