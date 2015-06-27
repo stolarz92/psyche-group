@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627103702) do
+ActiveRecord::Schema.define(version: 20150627105633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20150627103702) do
   add_index "comments", ["task_id"], name: "index_comments_on_task_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "memberships", ["project_id"], name: "index_memberships_on_project_id", using: :btree
+  add_index "memberships", ["role_id"], name: "index_memberships_on_role_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
   create_table "priorities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -42,6 +54,12 @@ ActiveRecord::Schema.define(version: 20150627103702) do
     t.datetime "updated_at",  null: false
     t.datetime "starts_at"
     t.datetime "ends_at"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -87,6 +105,9 @@ ActiveRecord::Schema.define(version: 20150627103702) do
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "memberships", "projects"
+  add_foreign_key "memberships", "roles"
+  add_foreign_key "memberships", "users"
   add_foreign_key "tasks", "priorities"
   add_foreign_key "tasks", "statuses"
 end
