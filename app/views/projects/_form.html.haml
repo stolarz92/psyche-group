@@ -15,6 +15,6 @@
   .form-group
     = f.input :ends_at
   .form-group
-    = f.association :users
+    = f.association :users, as: :check_boxes
   .actions.form-group
     = f.submit 'Save'

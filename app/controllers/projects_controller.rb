@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  expose(:project)
+  before_action :signed_in, only: [:new, :edit, :destroy]
+
+  expose(:project, attributes: :project_params)
 
   def index
     @projects = Project.all
@@ -39,6 +41,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :starts_at, :ends_at)
+    params.require(:project).permit(:name, :description, :starts_at, :ends_at, {user_ids: []})
   end
 end
