@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 
   expose(:task, attributes: :task_params)
   expose(:project)
+  expose(:comment) {Comment.new}
 
   # GET /tasks
   def index
@@ -10,6 +11,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1
   def show
+    @comments = Comment.where(task_id: task.id)
   end
 
   # GET /tasks/new

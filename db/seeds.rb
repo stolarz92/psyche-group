@@ -13,3 +13,5 @@ Priority.create(name: 'High')
 Status.create(name: 'New')
 Status.create(name: 'In progress')
 Status.create(name: 'Closed')
+
+User.create(email: 'user@example.com', password: 'dontknow', password_confirmation: 'dontknow')

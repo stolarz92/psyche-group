@@ -1,3 +1,4 @@
+
 = simple_form_for obj do |f|
   - if obj.errors.any?
     #error_explanation
@@ -9,7 +10,7 @@
   .form-group
     = f.label :content
     = f.text_field :content
-  
+
     = f.hidden_field :project_id
     = f.hidden_field :task_id
 
