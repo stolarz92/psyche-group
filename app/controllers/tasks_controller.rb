@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  expose(:task, params: :task_params)
+  expose(:task, attributes: :task_params)
   expose(:project)
 
   # GET /tasks
@@ -22,8 +22,9 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
+    task.project = project
     if task.save
-      redirect_to task, notice: 'Task was successfully created.'
+      redirect_to project_task_path(project,task), notice: 'Task was successfully created.'
     else
       render :new
     end
@@ -47,6 +48,6 @@ class TasksController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :description, :deadline)
+      params.require(:task).permit(:name, :description, :deadline, :priority_id, :status_id)
     end
 end
