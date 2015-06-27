@@ -58,6 +58,7 @@ gem 'pundit'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'quiet_assets'
 gem 'konf'
+gem 'gravtastic'
 
 group :development do
   gem 'html2haml'
