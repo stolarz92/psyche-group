@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20150627101452) do
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
   end
 
   create_table "tasks", force: :cascade do |t|
