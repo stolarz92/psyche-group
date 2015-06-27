@@ -30,11 +30,9 @@ ActiveRecord::Schema.define(version: 20150627105633) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.integer  "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "role_id"
   end
 
   add_index "memberships", ["project_id"], name: "index_memberships_on_project_id", using: :btree
