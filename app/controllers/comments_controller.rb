@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = current_user
     if @comment.save
       redirect_to @comment.resourceable, notice: 'Comment has been added.'
     else
@@ -31,6 +32,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :task_id, :project_id)
+    params.require(:comment).permit(:content, :task_id, :project_id)
   end
 end
