@@ -1,19 +1,17 @@
-= simple_form_for @comment do |f|
-  - if @comment.errors.any?
+= simple_form_for obj do |f|
+  - if obj.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %h2= "#{pluralize(obj.errors.count, "error")} prohibited this comment from being saved:"
       %ul
-        - @comment.errors.full_messages.each do |msg|
+        - obj.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
     = f.label :content
     = f.text_field :content
   
-  - if resource == 'project'
-    = f.hidden_field :project_id, value: resource_id
-  - else
-    = f.hidden_field :task_id, value: resource_id
+    = f.hidden_field :project_id
+    = f.hidden_field :task_id
 
   .actions.form-group
     = f.submit 'Save'

@@ -2,21 +2,21 @@
 
 %p
   %b Name:
-  = @project.name
+  = project.name
 %p
   %b Description:
-  = @project.description
+  = project.description
 %p
   %b Starts at:
-  = @project.starts_at
+  = project.starts_at
 %p
   %b Ends at:
-  = @project.ends_at
+  = project.ends_at
 
-= render 'comments/form', resource: 'project', resource_id: @project.id
+= render 'comments/form', obj: project.comments.build
 
-= render @project.comments
+= render 'comments/comment'
 
-= link_to 'Edit', edit_project_path(@project)
+= link_to 'Edit', edit_project_path(project)
 \|
 = link_to 'Back', projects_path

@@ -1,4 +1,5 @@
-%div
-  = comment.created_at
-  = comment.user.email
-  = comment.content
+- @comments.each do |comment|
+  %div
+    = comment.created_at
+    = comment.user.email
+    = comment.content
