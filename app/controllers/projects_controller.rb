@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-  before_action :signed_in, only: [:new, :edit, :destroy]
-
   expose(:project)
 
   def index
