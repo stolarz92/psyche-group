@@ -38,11 +38,6 @@ class ProjectsController < ApplicationController
 
   private
 
-  def signed_in
-    flash[:danger] = 'You have no permission.'
-    redirect_to new_user_session_path unless user_signed_in?
-  end
-
   def project_params
     params.require(:project).permit(:name, :description, :starts_at, :ends_at)
   end
