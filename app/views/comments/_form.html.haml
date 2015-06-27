@@ -10,12 +10,12 @@
     = f.label :content
     = f.text_field :content
 
-  = f.hidden_field :user_id, current_user.id
+  = f.hidden_field :user_id, value: current_user.id
   
   - if resource == 'project'
-    = f.hidden_field :project_id, resource_id
+    = f.hidden_field :project_id, value: resource_id
   - else
-    = f.hidden_field :task_id, resource_id
+    = f.hidden_field :task_id, value: resource_id
 
   .actions
     = f.submit 'Save'
