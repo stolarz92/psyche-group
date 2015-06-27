@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
+  def signed_in
+    flash[:danger] = 'You have no permission.'
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 end
