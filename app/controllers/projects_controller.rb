@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in, only: [:new, :edit, :destroy]
 
   def index
     @projects = Project.all
@@ -39,6 +40,11 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def signed_in
+    flash[:danger] = 'You have no permission.'
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 
   def set_project
     @project = Project.find(params[:id])
