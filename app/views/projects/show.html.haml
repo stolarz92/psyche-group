@@ -13,6 +13,10 @@
   %b Ends at:
   = @project.ends_at
 
+= render 'comments/form', resource: 'project', resource_id: @project.id
+
+= render @project.comments
+
 = link_to 'Edit', edit_project_path(@project)
 \|
 = link_to 'Back', projects_path
