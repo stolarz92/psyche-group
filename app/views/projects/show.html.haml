@@ -1,17 +1,21 @@
+-provide(:title, project.name)
 %p#notice= notice
 
-%p
-  %b Name:
-  = project.name
-%p
-  %b Description:
-  = project.description
-%p
-  %b Starts at:
-  = project.starts_at
-%p
-  %b Ends at:
-  = project.ends_at
+%table.table.table-striped
+  %tbody
+    %tr
+      %td Name:
+      %td= project.name
+    %tr
+      %td Description:
+      %td= project.description
+    %tr
+      %td Starts at
+      %td= project.start_date
+    %tr
+      %td Ends at
+      %td= project.end_date
+
 
 = render 'projects/tasks'
 

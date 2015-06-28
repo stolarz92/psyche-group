@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   before_action :get_users, only: [:new, :edit]
 
-  expose(:project, attributes: :project_params)
+  expose_decorated(:project, attributes: :project_params)
   expose_decorated(:projects)
   expose(:comments) {project.comments.where.not(id: nil)}
   expose(:tasks, ancestor: :project)
