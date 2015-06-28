@@ -1,0 +1,7 @@
+%h2 Your projects
+%ul
+  - user.projects.each do |project|
+    %li
+      = link_to project.name, project
+
+= link_to 'Add new task', new_project_task_path

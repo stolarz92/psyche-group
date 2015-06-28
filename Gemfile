@@ -60,6 +60,7 @@ gem 'quiet_assets'
 gem 'konf'
 gem 'gravtastic'
 gem 'jquery-ui-rails'
+gem 'jquery-datetimepicker-rails'
 
 group :development do
   gem 'html2haml'

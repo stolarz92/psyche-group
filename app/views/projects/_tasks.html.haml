@@ -6,3 +6,5 @@
       = link_to task.name, [project, task]
 - else
   %p There are no tasks yet.
+
+= link_to 'Add new task', new_project_task_path(project)

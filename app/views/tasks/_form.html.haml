@@ -13,7 +13,7 @@
   .form-group
     = f.association :user, label_method: :email, value_method: :id
   .form-group
-    = f.input :deadline
+    = f.input :deadline, as: :string, input_html: {class: 'datetimepicker', placeholder: 'Click to add date'}
   .form-group
     = f.association :priority
   .form-group
