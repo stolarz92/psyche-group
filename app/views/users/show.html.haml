@@ -1,4 +1,2 @@
-%h2
-  Hello
-  = user.email
-  = render 'users/projects'
+-provide(:title, "Hello #{current_user.email}!")
+= render 'users/projects'
