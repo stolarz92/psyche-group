@@ -1,17 +1,25 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# The data can then be loaded with the rake db:seed (or whered alongside the db with db:setup).
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.where([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.where(name: 'Emanuel', city: cities.first)
 
-Priority.create(name: 'Low')
-Priority.create(name: 'Medium')
-Priority.create(name: 'High')
+Priority.where(name: 'Low').first_or_create
+Priority.where(name: 'Medium').first_or_create
+Priority.where(name: 'High').first_or_create
 
-Status.create(name: 'New')
-Status.create(name: 'In progress')
-Status.create(name: 'Closed')
+Status.where(name: 'New').first_or_create
+Status.where(name: 'In progress').first_or_create
+Status.where(name: 'Closed').first_or_create
 
-User.create(email: 'user@example.com', password: 'dontknow', password_confirmation: 'dontknow')
+# User.where(email: 'user@example.com', password: 'dontknow', password_confirmation: 'dontknow').first_or_create
+User.find_or_create_by(email: 'user@example.com') do |u|
+  u.password = 'dontknow'
+  u.password_confirmation = 'dontknow'
+end
+
+Role.where(name: 'owner').first_or_create
+Role.where(name: 'contributor').first_or_create
+Role.where(name: 'admin').first_or_create
