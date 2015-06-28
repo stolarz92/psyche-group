@@ -16,13 +16,12 @@
       %td Ends at
       %td= project.end_date
 
+-if project.has_member?(current_user)
+  = render 'projects/tasks'
+  = render 'comments/comment'
+  = render 'comments/form', obj: project.comments.build
 
-= render 'projects/tasks'
-
-= render 'comments/form', obj: project.comments.build
-
-= render 'comments/comment'
-
-= link_to 'Edit', edit_project_path(project)
-\|
+-if project.is_owner?(current_user)
+  = link_to 'Edit', edit_project_path(project)
+  \|
 = link_to 'Back', projects_path

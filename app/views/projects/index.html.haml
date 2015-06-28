@@ -19,8 +19,12 @@
         %td= project.start_date
         %td= project.end_date
         %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -if project.is_owner?(current_user)
+          %td= link_to 'Edit', edit_project_path(project)
+          %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -else
+          %td
+          %td
 
 %br
 - if user_signed_in?

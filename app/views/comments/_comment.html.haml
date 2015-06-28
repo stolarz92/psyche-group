@@ -1,9 +1,10 @@
 %h3 Comments
 -if comments.any?
   - comments.each do |comment|
-    %div
-      = comment.created_at
-      = comment.user.email
-      = comment.content
+    .well
+      %h3= comment.user.email
+      %em= comment.created_at
+      %p= comment.content
 - else
   %p There are no comments yet.
+
