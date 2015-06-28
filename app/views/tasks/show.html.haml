@@ -27,8 +27,9 @@
 
 = render 'comments/comment'
 
-= text_area_tag 'comment_content', nil, id: 'comment_content'
+%h3 Add comment to task
+= text_area_tag 'comment_content', nil, id: 'comment_content', class: 'form-control'
 = hidden_field :task, :id, value: task.id
 = hidden_field :project, :id, value: project.id
 %br
-= button_tag 'Add Comment', id: 'comment_button'
+= button_tag 'Add Comment', id: 'comment_button', class: 'btn btn-primary'
