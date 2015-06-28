@@ -18,7 +18,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'simple_form'
-gem 'decent_exposure'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -65,5 +64,6 @@ gem 'jquery-ui-rails'
 group :development do
   gem 'html2haml'
   gem 'rails_layout'
+  gem 'rails_12factor'
 end
 
