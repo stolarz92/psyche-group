@@ -60,6 +60,7 @@ gem 'bootstrap-sass', '~> 3.1.0'
 gem 'quiet_assets'
 gem 'konf'
 gem 'gravtastic'
+gem 'jquery-ui-rails'
 
 group :development do
   gem 'html2haml'
