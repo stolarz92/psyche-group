@@ -26,4 +26,9 @@
 = link_to 'Back', project_tasks_path
 
 = render 'comments/comment'
-= render 'comments/form', obj: task.comments.build
+
+= text_area_tag 'comment_content', nil, id: 'comment_content'
+= hidden_field :task, :id, value: task.id
+= hidden_field :project, :id, value: project.id
+%br
+= button_tag 'Add Comment', id: 'comment_button'
