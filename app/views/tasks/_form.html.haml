@@ -11,7 +11,7 @@
   .form-group
     = f.input :description
   .form-group
-    = f.input :user
+    = f.association :user, label_method: :email, value_method: :id
   .form-group
     = f.input :deadline
   .form-group
