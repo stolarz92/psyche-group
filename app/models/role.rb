@@ -1,3 +1,3 @@
 class Role < ActiveRecord::Base
-  belongs_to :membership
+  has_one :membership
 end

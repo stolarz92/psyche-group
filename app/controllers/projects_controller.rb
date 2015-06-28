@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
 
   def create
     if project.save
+      role = Role.find_by(name: 'owner')
+      Membership.create(project: project, user: current_user, role: role)
       redirect_to projects_path, notice: 'Project has been added.'
     else
       render 'new'
