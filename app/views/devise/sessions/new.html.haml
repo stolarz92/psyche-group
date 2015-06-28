@@ -1,0 +1,14 @@
+-provide :title, 'Sign in'
+.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4.well
+  %h2 Sign in
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-group
+      = link_to 'Sign up', new_registration_path(resource_name), class: 'pull-right'
+      = f.input :email, required: false, autofocus: true
+    .form-group
+      = link_to "Forgot password?", new_password_path(resource_name), class: 'pull-right'
+      = f.input :password, required: false
+    .pull-left
+      = f.input :remember_me, as: :boolean, inline_label: true, label: false if devise_mapping.rememberable?
+    .pull-right
+      = f.submit "Log in"

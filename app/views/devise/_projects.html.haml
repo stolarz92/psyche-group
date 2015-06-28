@@ -1,0 +1,5 @@
+%h2 Your projects
+%ul
+  - user.projects.each do |project|
+    %li
+      = link_to project.name, project
