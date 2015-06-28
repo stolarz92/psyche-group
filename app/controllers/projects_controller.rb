@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :signed_in, only: [:new, :edit, :destroy]
+  before_action :check_permissions, only: [:edit, :update]
 
   expose(:project, attributes: :project_params)
   expose(:projects)
@@ -45,5 +46,11 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :description, :starts_at, :ends_at, {user_ids: []})
+  end
+
+  def check_permissions
+    if project.memberships.include?(current_user)
+      redirect_to root_path, notice: 'You are not allowed to view this resource'
+    end
   end
 end
