@@ -18,8 +18,11 @@ class ProjectsController < ApplicationController
 
   def create
     if project.save
-      role = Role.find_by(name: 'owner')
-      Membership.create(project: project, user: current_user, role: role)
+      Membership.create(project: project, user: current_user, role: Role.find_by(name: 'owner'))
+      contributor = Role.find_by(name: 'contributor')
+      params[:project][:user_ids].each do |user_id|
+        Membership.create(project: project, user_id: user_id, role: contributor)
+      end
       redirect_to projects_path, notice: 'Project has been added.'
     else
       render 'new'
@@ -49,7 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def check_permissions
-    if project.memberships.include?(current_user)
+    if project.memberships.exists?(user_id: current_user.id)
       redirect_to root_path, notice: 'You are not allowed to view this resource'
     end
   end
