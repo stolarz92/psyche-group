@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   expose(:project, attributes: :project_params)
   expose(:projects)
   expose(:comments) {project.comments.where.not(id: nil)}
+  expose(:tasks, ancestor: :project)
 
   def index
   end

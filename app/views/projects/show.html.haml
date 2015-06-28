@@ -13,6 +13,8 @@
   %b Ends at:
   = project.ends_at
 
+= render 'projects/tasks'
+
 = render 'comments/form', obj: project.comments.build
 
 = render 'comments/comment'
