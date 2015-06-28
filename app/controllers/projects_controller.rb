@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  before_action :signed_in, only: [:new, :edit, :destroy]
   before_action :check_permissions, only: [:edit, :update]
 
   before_action :get_users, only: [:new, :edit]
