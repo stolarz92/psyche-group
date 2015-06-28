@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :check_permissions, only: [:edit, :update]
 
   expose(:project, attributes: :project_params)
-  expose(:projects)
+  expose_decorated(:projects)
   expose(:comments) {project.comments.where.not(id: nil)}
   expose(:tasks, ancestor: :project)
 
