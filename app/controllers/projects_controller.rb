@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :signed_in, only: [:new, :edit, :destroy]
   before_action :check_permissions, only: [:edit, :update]
 
+  before_action :get_users, only: [:new, :edit]
+
   expose(:project, attributes: :project_params)
   expose_decorated(:projects)
   expose(:comments) {project.comments.where.not(id: nil)}
@@ -49,6 +51,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :description, :starts_at, :ends_at, {user_ids: []})
+  end
+
+  def get_users
+    @users = User.where.not(id: current_user.id)
   end
 
   def check_permissions
