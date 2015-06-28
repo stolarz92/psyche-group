@@ -11,11 +11,10 @@ $ ->
       comment:
         content: content,
         task_id: task_id,
-        project_id: project_id
     ).success (resp) ->
       console.log(resp)
       div_comment = $('<div>', { class: 'comment'})
-      comment_text = "#{resp.comment.created_at} #{resp.user_mail} #{resp.comment.content}"
+      comment_text = "<h4>#{resp.comment.content}</h4> <p>#{resp.user_mail}</p> <p>#{resp.comment.created_at}</p>  "
       div_comment.html(comment_text)
       comments = $('#comments')
       $(div_comment).appendTo(comments)
