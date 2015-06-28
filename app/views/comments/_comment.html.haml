@@ -1,5 +1,9 @@
-- comments.each do |comment|
-  %div
-    = comment.created_at
-    = comment.user.email
-    = comment.content
+%h3 Comments
+-if comments.any?
+  - comments.each do |comment|
+    %div
+      = comment.created_at
+      = comment.user.email
+      = comment.content
+- else
+  %p There are no comments yet.

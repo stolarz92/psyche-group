@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :check_permissions
 
-  expose(:task, attributes: :task_params)
+  expose_decorated(:task, attributes: :task_params)
   expose(:project)
   expose(:comment) {Comment.new}
   expose(:comments)
