@@ -56,7 +56,7 @@ class TasksController < ApplicationController
     end
 
     def check_permissions
-      unless project.memberships.exists?(user: current_user)
+      unless project.has_member?(current_user)
         redirect_to root_path, notice: 'You are not allowed to view this resource'
       end
     end

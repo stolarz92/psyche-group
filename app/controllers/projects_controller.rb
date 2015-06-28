@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   end
 
   def check_permissions
-    unless project.memberships.exists?(user: current_user, role: Role.find_by(name: 'owner'))
+    unless project.is_owner?(current_user)
       redirect_to root_path, notice: 'You are not allowed to view this resource'
     end
   end
