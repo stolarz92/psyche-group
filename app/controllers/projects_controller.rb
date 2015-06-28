@@ -2,13 +2,13 @@ class ProjectsController < ApplicationController
   before_action :signed_in, only: [:new, :edit, :destroy]
 
   expose(:project, attributes: :project_params)
+  expose(:projects)
+  expose(:comments) {project.comments.where.not(id: nil)}
 
   def index
-    @projects = Project.all
   end
 
   def show
-    @comments = Comment.where(project_id: project.id)
   end
 
   def new
