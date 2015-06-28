@@ -1,26 +1,27 @@
-%p#notice= notice
-%h1 Task info
-%table.table
+%table.table.table-striped
   %tbody
-  %tr
-    %th Name
-    %td
-      = task.name
-  %tr
-    %th Description
-    %td
-      = task.description
-  %tr
-    %th Deadline
-    %td
-      = task.formatted_date
-
+    %tr
+      %td Name:
+      %td= task.name
+    %tr
+      %td Description
+      %td= task.description
+    %tr
+      %td Deadline
+      %td= task.deadline
+    %tr
+      %td Status
+      %td= task.status.name
+    %tr
+      %td Priority
+      %td= task.priority.name
+    %tr
+      %td Owner
+      %td= task.user.email
 
 = link_to 'Edit', edit_project_task_path(project,task)
 \|
 = link_to 'Back', project_tasks_path
 
 = render 'comments/comment'
-
 = render 'comments/form', obj: task.comments.build
-
