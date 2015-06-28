@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   expose(:project)
   expose(:comment) {Comment.new}
   expose(:comments)
-  expose(:tasks) { project.tasks.where.not(id: nil) }
+  expose(:tasks) { project.tasks }
 
   # GET /tasks
   def index
@@ -56,7 +56,7 @@ class TasksController < ApplicationController
     end
 
     def check_permissions
-      unless task.user == current_user || project.memberships.exists?(user: current_user)
+      unless project.memberships.exists?(user: current_user)
         redirect_to root_path, notice: 'You are not allowed to view this resource'
       end
     end
