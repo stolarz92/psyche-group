@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :check_permissions
 
   expose(:task, attributes: :task_params)
   expose(:project)
@@ -51,5 +52,11 @@ class TasksController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def task_params
       params.require(:task).permit(:name, :description, :deadline, :priority_id, :status_id, :user_id)
+    end
+
+    def check_permissions
+      unless task.user == current_user || project.memberships.include?(current_user)
+        redirect_to root_path, notice: 'You are not allowed to view this resource'
+      end
     end
 end
