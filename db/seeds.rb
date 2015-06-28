@@ -14,8 +14,11 @@ Status.where(name: 'New').first_or_create
 Status.where(name: 'In progress').first_or_create
 Status.where(name: 'Closed').first_or_create
 
-# User.where(email: 'user@example.com', password: 'dontknow', password_confirmation: 'dontknow').first_or_create
 User.find_or_create_by(email: 'user@example.com') do |u|
+  u.password = 'dontknow'
+  u.password_confirmation = 'dontknow'
+end
+User.find_or_create_by(email: 'user2@example.com') do |u|
   u.password = 'dontknow'
   u.password_confirmation = 'dontknow'
 end
