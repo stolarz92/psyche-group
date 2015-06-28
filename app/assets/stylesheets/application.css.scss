@@ -1,2 +1,6 @@
 @import "bootstrap";
 @import "jquery.datetimepicker";
+
+.alert-notice {
+  @extend .alert-info;
+}
