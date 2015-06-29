@@ -43,7 +43,7 @@ password: dontknow
 
 Enjoy!
 
-### Functionalities
+### Basic functionality
 
 1. Users
   * signing up
