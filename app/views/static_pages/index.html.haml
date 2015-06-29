@@ -1,1 +1,7 @@
 -provide(:title, 'Welcome to GuruTracker!')
+.jumbotron.banner
+  %h1 Welcome to GuruTracker!
+  %h2 Manage your projects better!
+  %h2 Designate tasks, set priorities, statuses and control project flow
+  .form-group
+    = link_to 'Sing in', new_user_session_path, class: 'btn btn-primary btn-lg'

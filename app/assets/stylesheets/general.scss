@@ -6,3 +6,12 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+.banner {
+  background: url("http://theme-background-videos.s3.amazonaws.com/blue.jpg");
+  color: #fff;
+
+  .btn-lg {
+    margin-top: 15px
+  }
+}
