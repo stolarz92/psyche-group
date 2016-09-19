@@ -61,10 +61,10 @@ gem 'konf'
 gem 'gravtastic'
 gem 'jquery-ui-rails'
 gem 'jquery-datetimepicker-rails'
+gem 'compass-rails'
 
 group :development do
   gem 'html2haml'
   gem 'rails_layout'
   gem 'rails_12factor'
 end
-

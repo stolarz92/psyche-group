@@ -25,3 +25,43 @@
     color: white;
   }
 }
+
+.landing-page-descriptions {
+  margin-top: 80px;
+
+  .col-md-4 {
+    text-align: center;
+  }
+
+  .featurette {
+    overflow: hidden;
+
+    .featurette-image.pull-right {
+      margin-right: 40px;
+    }
+
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+
+    .featurette-divider {
+      margin: 80px 0;
+    }
+
+    .featurette-heading {
+      font-size: 50px;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .lead {
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+}

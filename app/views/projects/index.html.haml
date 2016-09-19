@@ -1,6 +1,6 @@
 -provide(:title, 'Projects')
 
-%table.table
+%table.responstable
   %thead
     %tr
       %th Name
@@ -8,8 +8,7 @@
       %th Starts at
       %th Ends at
       %th
-      %th
-      %th
+
 
   %tbody
     - projects.each do |project|
@@ -18,13 +17,12 @@
         %td= project.description
         %td= project.start_date
         %td= project.end_date
-        %td= link_to 'Show', project
-        -if project.is_owner?(current_user)
-          %td= link_to 'Edit', edit_project_path(project)
-          %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        -else
-          %td
-          %td
+        %td
+          = link_to 'Show', project
+          - if project.is_owner?(current_user)
+            = link_to 'Edit', edit_project_path(project)
+            = link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 %br
 - if user_signed_in?
