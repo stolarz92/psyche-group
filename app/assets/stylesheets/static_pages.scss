@@ -1,3 +1,27 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bg-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+  position: relative;
+  background-image: image-url("photo.jpg");
+  background-position: center;
+
+
+  .landing-page-slogan {
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  h1, h2 {
+    color: white;
+  }
+}
