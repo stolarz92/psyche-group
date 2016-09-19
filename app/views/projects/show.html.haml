@@ -15,9 +15,9 @@
     %tr
       %td Ends at
       %td= project.end_date
-
 -if project.has_member?(current_user)
   = render 'projects/tasks'
+  %hr
   = render 'comments/comment'
   = render 'comments/form', obj: project.comments.build
 
